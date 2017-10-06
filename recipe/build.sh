@@ -39,5 +39,5 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D ENABLE_HDF4_FILE_TESTS=OFF \
       $SRC_DIR
 make -j$CPU_COUNT
-ctest
 make install -j$CPU_COUNT
+ctest
