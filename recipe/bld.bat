@@ -2,12 +2,7 @@ mkdir %SRC_DIR%\build
 cd %SRC_DIR%\build
 
 cmake -G "NMake Makefiles" ^
-<<<<<<< HEAD
-      -D CMAKE_BUILD_TYPE=Release ^
-      -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-=======
       -D CMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
->>>>>>> remove vc features (use run_exports vc pkg instead)
       -D BUILD_SHARED_LIBS=ON ^
       -D ENABLE_TESTS=OFF ^
       -D ENABLE_HDF4=ON ^
