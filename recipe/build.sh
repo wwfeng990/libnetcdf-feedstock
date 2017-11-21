@@ -3,6 +3,12 @@
 export CFLAGS="$CFLAGS -I$PREFIX/include"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib"
 
+if [[ ${HOST} =~ .*darwin.* ]]; then
+    CMAKE_TOOLCHAIN_FLAGS=""
+else
+    CMAKE_TOOLCHAIN_FLAGS=-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake"
+fi
+
 # Build static.
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_BUILD_TYPE=Release \
@@ -21,7 +27,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CURL_LIBRARY=$PREFIX/lib/libcurl${SHLIB_EXT} \
       -D ENABLE_CDF5=ON \
       -D CMAKE_PLATFORM=Linux \
-      -D CMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake" \
+      $CMAKE_TOOLCHAIN_FLAGS \
       $SRC_DIR
 make -j$CPU_COUNT
 # ctest  # Run only for the shared lib build to save time.
@@ -46,7 +52,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D ENABLE_CDF5=ON \
       -D ENABLE_HDF4_FILE_TESTS=OFF \
       -D CMAKE_PLATFORM=Linux \
-      -D CMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake" \
+      $CMAKE_TOOLCHAIN_FLAGS \
       $SRC_DIR
 make -j$CPU_COUNT
 make install -j$CPU_COUNT
