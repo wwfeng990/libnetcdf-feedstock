@@ -26,7 +26,6 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CURL_INCLUDE_DIR=$PREFIX/include \
       -D CURL_LIBRARY=$PREFIX/lib/libcurl${SHLIB_EXT} \
       -D ENABLE_CDF5=ON \
-      -D CMAKE_PLATFORM=Linux \
       $CMAKE_TOOLCHAIN_FLAGS \
       $SRC_DIR
 make -j$CPU_COUNT
@@ -51,7 +50,6 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CURL_LIBRARY=$PREFIX/lib/libcurl${SHLIB_EXT} \
       -D ENABLE_CDF5=ON \
       -D ENABLE_HDF4_FILE_TESTS=OFF \
-      -D CMAKE_PLATFORM=Linux \
       $CMAKE_TOOLCHAIN_FLAGS \
       $SRC_DIR
 make -j$CPU_COUNT
