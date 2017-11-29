@@ -37,6 +37,7 @@ requirements:
     - zlib
     - hdf4
     - hdf5
+    - jpeg
   run:
     - curl
 
