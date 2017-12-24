@@ -20,6 +20,7 @@ source:
     - 0006-Fix-build-on-pre-C99-compilers.patch
     - 0007-Add-workaround-for-sscanf-NaN.patch
     - 0008-Make-ncdump_tst_h_rdc0-test-conditional.patch
+    - 0009-Prefer-getenv-TOPSRCDIR-over-STRINGIFY-TOPSRCDIR.patch
 
 build:
   number: 7
