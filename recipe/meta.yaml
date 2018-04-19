@@ -5,21 +5,14 @@ package:
   version: {{ version }}
 
 source:
+  fn: libnetcdf_{{ version }}.tar.gz
   url: https://github.com/Unidata/netcdf-c/archive/v{{ version }}.tar.gz
   sha256: a2fabf27c72a5ee746e3843e1debbaad37cd035767eaede2045371322211eebb
   patches:
-    # https://github.com/Unidata/netcdf-c/pull/512
-    - 0001-Force-attribute-value-to-be-in-range-vs-causing-erro.patch
-    # https://github.com/Unidata/netcdf-c/pull/573
-    - 0002-Fix-https-github.com-Unidata-netcdf-c-issues-569.patch
-    # https://github.com/Unidata/netcdf-c/pull/729
-    - 0003-Fix-buffer-overrun-in-tabs-MAX_NESTS-by-adding-space.patch
     - 0004-Add-find_package-Threads-REQUIRED-to-CMakeLists.txt.patch
-    - 0005-Use-refactored-variable-names-introduced-by-773fe807.patch
-    - 0006-Fix-build-on-pre-C99-compilers.patch
-    - 0007-Add-workaround-for-sscanf-NaN.patch
-    - 0008-Make-ncdump_tst_h_rdc0-test-conditional.patch
     - 0009-Prefer-getenv-TOPSRCDIR-over-STRINGIFY-TOPSRCDIR.patch
+    # not sure if this is still necessary.  It needs to be updated if it is still necessary.
+    # - 0008-Make-ncdump_tst_h_rdc0-test-conditional.patch
 
 build:
   number: 3
