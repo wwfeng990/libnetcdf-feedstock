@@ -35,13 +35,11 @@ requirements:
   host:
     - msinttypes  # [win and vc<14]
     - bzip2
-    - curl
+    - libcurl
     - zlib
     - hdf4
     - hdf5
     - jpeg
-  run:
-    - curl
 
 test:
   commands:
